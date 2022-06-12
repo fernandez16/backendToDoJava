@@ -15,30 +15,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/products")
 public class Controller {
 
 	@Autowired
-	TaskService service;
+	ProductService service;
 
 	@GetMapping
-	public List<Task> list() {
+	public List<Product> list() {
 		return service.list();
 	}
 
-	@PostMapping
-	public Task add(@RequestBody Task p) {
-		return service.add(p);
-	}
-
 	@GetMapping(path = { "/{id}" })
-	public Task listId(@PathVariable("id") int id) {
+	public Product listId(@PathVariable("id") int id) {
 		return service.listId(id);
 	}
 
-	@PutMapping(path = { "/{id}" })
-	public Task edit(@RequestBody Task p, @PathVariable("id") int id) {
-		p.setId(id);
+	@PostMapping
+	public Product add(@RequestBody Product p) {
+		return service.add(p);
+	}
+
+	@PutMapping
+	public Product edit(@RequestBody Product p) {
 		return service.edit(p);
 	}
 

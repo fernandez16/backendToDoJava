@@ -6,37 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TaskServiceImp implements TaskService {
+public class ProductServiceImp implements ProductService {
 
 	@Autowired
-	private TaskRepository repository;
-	
+	private ProductRepository repository;
+
 	@Override
-	public List<Task> list() {		
+	public List<Product> list() {
 		return repository.findAll();
 	}
 
 	@Override
-	public Task listId(int id) {
+	public Product listId(int id) {
 		return repository.findById(id);
 	}
 
 	@Override
-	public Task edit(Task p) {
+	public Product edit(Product p) {
 		return repository.save(p);
 	}
 
 	@Override
-	public Task add(Task p) {
+	public Product add(Product p) {
 		return repository.save(p);
 	}
 
 	@Override
 	public void delete(int id) {
-	Task p=repository.findById(id);
-	if(p!=null) {
-		repository.delete(p);
-	}
+		Product p = repository.findById(id);
+		if (p != null) {
+			repository.delete(p);
+		}
 
 	}
 
