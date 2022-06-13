@@ -31,11 +31,6 @@ public class Controller {
 		return service.add(p);
 	}
 
-	@GetMapping(path = { "/{id}" })
-	public Task listId(@PathVariable("id") int id) {
-		return service.listId(id);
-	}
-
 	@PutMapping(path = { "/{id}" })
 	public Task edit(@RequestBody Task p, @PathVariable("id") int id) {
 		p.setId(id);

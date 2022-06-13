@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name= "tasks")
 public class Task {
+	
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,23 +13,29 @@ public class Task {
 	@Column
 	private String name;
 	@Column
-	private String done;
+	private boolean done;
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDone() {
+	
+	public boolean getDone() {
 		return done;
 	}
-	public void getDone(String done) {
+	
+	public void setDone(boolean done) {
 		this.done = done;
 	}
 	
